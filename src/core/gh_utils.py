@@ -29,9 +29,9 @@ def get_matrix(source: str) -> None:
     main_cfg = parse_config(data)
     source_lower = source.lower()
 
-    is_auto_ci = os.getenv("IS_CI", "false").lower() == "true"
+    is_auto = os.getenv("IS_AUTO", "false").lower() == "true"
     build_changed_only = data.get("build-changed-only", [])
-    filter_by_changelog = is_auto_ci and (source_lower in [str(b).lower() for b in build_changed_only])
+    filter_by_changelog = is_auto and (source_lower in [str(b).lower() for b in build_changed_only])
 
     changelog_text = ""
     if filter_by_changelog:
@@ -85,11 +85,7 @@ def get_matrix(source: str) -> None:
 
     print(json.dumps({"include": include}, ensure_ascii=False))
 
-def check_builds_needed() -> None:
-    repo = os.getenv("GITHUB_REPOSITORY")
-    if not repo:
-        abort("GITHUB_REPOSITORY environment variable is not set")
-
+def check_builds_needed(force_all: bool = False) -> None:
     data = load_toml(CONFIG_PATH)
     main_cfg = parse_config(data)
     seen: dict[str, str] = {}
@@ -103,6 +99,14 @@ def check_builds_needed() -> None:
     if not seen:
         print(json.dumps([]))
         return
+
+    if force_all:
+        print(json.dumps(list(seen.keys())))
+        return
+
+    repo = os.getenv("GITHUB_REPOSITORY")
+    if not repo:
+        abort("GITHUB_REPOSITORY environment variable is not set")
 
     with NetworkManager() as net:
         our_releases_by_brand: dict[str, str] = {}

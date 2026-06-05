@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: '0 10 * * *'
   workflow_dispatch:
+    inputs:
+      force_build:
+        description: 'Build all apps (skip update check)'
+        required: true
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -30,7 +36,12 @@ jobs:
         id: get-matrix
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "build_matrix=$(uv run main.py get-matrix)" >> "$GITHUB_OUTPUT"
+        run: |
+          if [ "${{ inputs.force_build }}" = "true" ]; then
+            echo "build_matrix=$(uv run main.py get-matrix-force)" >> "$GITHUB_OUTPUT"
+          else
+            echo "build_matrix=$(uv run main.py get-matrix)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Clear older runs
         env:
@@ -48,4 +59,5 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       patch_source: ${{ matrix.patch_source }}
+      is_auto: ${{ github.event_name == 'schedule' || inputs.force_build == false }}
     secrets: inherit

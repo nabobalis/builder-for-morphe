@@ -156,6 +156,7 @@ This repository is based on the [krvstek/uni-apks](https://github.com/krvstek/un
 
 - Support for more apps
 - Support for automatically building only changed apps
+- Support for manually building all apps
 - UI and configuration improvements to easily build and customize your own apps
 - No manual configuration required for each `brand` in `ci.yml`
 - Automatic upstream sync support
