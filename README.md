@@ -1,6 +1,6 @@
 ## [ngbangg/builder-for-morphe](https://github.com/ngbangg/builder-for-morphe)
 
-<a href="https://ngbangg.github.io/builder-for-morphe"><img src="https://img.shields.io/badge/Website-blue?style=social&logo=googlechrome" alt="Website"></a>　<a href="https://t.me/builder_for_morphe"><img src="https://img.shields.io/badge/Telegram_Channel-blue?style=social&logo=telegram" alt="Telegram"></a>
+<a href="https://t.me/builder_for_morphe"><img src="https://img.shields.io/badge/Telegram_Channel-blue?style=social&logo=telegram" alt="Telegram Channel"></a> <a href="https://t.me/builder_for_morphe_chat"><img src="https://img.shields.io/badge/Group-blue?style=social&logo=telegram" alt="Group"></a>　<a href="https://ngbangg.github.io/builder-for-morphe"><img src="https://img.shields.io/badge/Website-blue?style=social&logo=googlechrome" alt="Website"></a>
 
 <div align="center">
 <a href="#apps-list"><img src="https://readme-typing-svg.demolab.com/?font=Google+Sans&size=25&duration=3000&pause=2000&color=&center=true&vCenter=true&random=false&width=550&lines=%F0%9F%93%A6+Pre-built+APKs+from+various+patch+sources"></a>
@@ -13,9 +13,6 @@ Here you can download and use applications selected for this repository, which a
 <a href="../../releases"><img src="https://img.shields.io/github/downloads/ngbangg/builder-for-morphe/total?logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSAyMGgxNHYtMkg1djJ6TTE5IDloLTRWM0g5djZINWw3IDcgNy03eiIvPjwvc3ZnPg==&label=Downloads&style=social" alt="Downloads"></a>　<a href="https://github.com/ngbangg/builder-for-morphe"><img src="https://img.shields.io/github/stars/ngbangg/builder-for-morphe?label=Star%20this%20repo%20if%20useful%20%E2%AD%90&logo=github-sponsors" alt="Stars"></a>　<a href="https://github.com/nvbangg"><img src="https://img.shields.io/badge/nvbangg-black?style=social&logo=github" alt="GitHub"></a>
 
 </div>
-
-> [!NOTE]
-> 📢 Join the [Telegram Channel](https://t.me/builder_for_morphe)
 
 ## <a id="apps-list"></a> 📋 List of apps in this repository
 
@@ -178,10 +175,10 @@ For full configuration reference, setup and contributing guide, see [CONTRIBUTIN
 
 This repository is based on the [krvstek/uni-apks](https://github.com/krvstek/uni-apks) template (GPL-3.0), with the following transparent changes (see [changes](https://github.com/ngbangg/builder-for-morphe/commits/main/?author=nvbangg)):
 
-- Support for more apps
-- Automatic upstream sync support
-- Designed for easily building your own APKs by just customizing `config.toml`
-  - No manual configuration required for each `brand` in `ci.yml`
+- Pre-configured and pre-built support for many apps
+- Easily [build your own APKs](https://github.com/ngbangg/builder-for-morphe#-build-your-own-apks) just by customizing `config.toml` (no extra setup required)
+  - Automatic upstream sync (preserves your custom `config.toml`)
+  - No manual brand configuration needed in `ci.yml`
   - Skip changelog filtering on manual builds
 - GitHub Pages deployment support
 - Other changes contributed upstream: [Pull Requests](https://github.com/krvstek/uni-apks/commits/main/?author=nvbangg), [co-authored commits](https://github.com/search?q=repo%3Akrvstek%2Funi-apks+Co-authored-by%3A+nvbangg&type=commits)
